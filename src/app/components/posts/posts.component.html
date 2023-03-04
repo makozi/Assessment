@@ -1,0 +1,160 @@
+<div *ngIf="!showEditPostForm" class="container">
+  <div class="user-data card">
+    <div>
+      <h3 class="postTitle">Create Post:</h3>
+    </div>
+    <form [formGroup]="postForm" (submit)="createUser($event, postForm)">
+      <div class="form-group row">
+        <label class="col-sm-3 bold" for="userId">User ID:</label>
+        <input
+          class="col-sm-9"
+          type="text"
+          placeholder="Enter User ID"
+          id="userId"
+          formControlName="userId"
+          autocomplete="off"
+        />
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-3 bold" for="id">ID:</label>
+        <input
+          class="col-sm-9"
+          type="text"
+          placeholder="Enter ID"
+          id="id"
+          formControlName="id"
+          autocomplete="off"
+        />
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-3 bold" for="title">Title:</label>
+        <input
+          class="col-sm-9"
+          type="text"
+          placeholder="Enter title"
+          id="title"
+          formControlName="title"
+          autocomplete="off"
+        />
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-3 bold" for="body">Body:</label>
+        <input
+          class="col-sm-9"
+          type="text"
+          placeholder="Enter body"
+          id="body"
+          formControlName="body"
+          autocomplete="off"
+        />
+      </div>
+
+      <button class="btn btn-primary" type="submit">
+        <i class="fas fa-plus"></i> Create Post
+      </button>
+    </form>
+
+    <div class="status" *ngIf="postCreated">Post Created Sucessfully.</div>
+  </div>
+</div>
+
+<div *ngIf="postData">
+  <h3 class="text-center title postTitle">Posts</h3>
+  <div class="container" *ngFor="let data of postData">
+    <div *ngIf="!showEditPostForm" class="user-data card">
+      <div>
+        <div>
+          <h4><span>User ID: </span> {{ data.userId }}</h4>
+        </div>
+        <div>
+          <h4><span>ID:</span> {{ data.id }}</h4>
+        </div>
+        <div>
+          <h4><span>Title:</span> {{ data.title }}</h4>
+        </div>
+        <div>
+          <h4><span>Body:</span> {{ data.body }}</h4>
+        </div>
+      </div>
+      <div>
+        <button
+          style="margin: 4px"
+          class="btn btn-primary"
+          (click)="editPost($event, data)"
+        >
+          <i class="fas fa-edit"></i> Edit Post
+        </button>
+        <button
+          style="margin: 4px"
+          class="btn btn-danger"
+          (click)="deletePost($event, data)"
+        >
+          <i class="fas fa-trash"></i> Delete Post
+        </button>
+      </div>
+
+      <div>
+        <div class="status" *ngIf="postDeleted && data.id === postDeletedId">
+          Post Deleted Sucessfully.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" *ngIf="showEditPostForm">
+    <div class="create-block">
+      <div>
+        <h3>Edit Post:</h3>
+      </div>
+      <form
+        [formGroup]="editPostForm"
+        (submit)="editPostData($event, editPostForm)"
+      >
+        <div class="form-group row">
+          <label class="col-sm-3" for="userId">User ID:</label>
+          <input
+            class="col-sm-9"
+            type="text"
+            placeholder="Enter User ID"
+            id="userId"
+            formControlName="userId"
+          />
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-3" for="it">it:</label>
+          <input
+            class="col-sm-9"
+            type="text"
+            placeholder="Enter it"
+            id="it"
+            formControlName="it"
+          />
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-3" for="title">Title:</label>
+          <input
+            class="col-sm-9"
+            type="text"
+            placeholder="Enter title"
+            id="title"
+            formControlName="title"
+          />
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-3" for="body">Body:</label>
+          <input
+            class="col-sm-9"
+            type="text"
+            placeholder="Enter body"
+            id="body"
+            formControlName="body"
+          />
+        </div>
+
+        <button class="btn btn-primary" type="submit">Edit Post</button>
+      </form>
+
+      <div class="status" *ngIf="postEdited">Post Edited Sucessfully.</div>
+    </div>
+  </div>
+</div>
