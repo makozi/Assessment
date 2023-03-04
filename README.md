@@ -5,10 +5,10 @@
 
 ```
 
-# select a repo from github or gitlab
+ 
 
-# download the example or clone the repo from github
-git clone 
+# clone the repo from github
+git clone https://github.com/makozi/Assessment.git
 
 
 
