@@ -14,6 +14,7 @@ export class PostsComponent implements OnInit {
   editPostForm!: FormGroup;
   showEditPostForm = false;
   editFormId: any;
+  
 
   // variables to status of request;
   postCreated = false;
@@ -26,6 +27,7 @@ export class PostsComponent implements OnInit {
     this.PostSService.getPostsData().subscribe((data: any) => {
       console.log('data', data);
       this.postData = data;
+      
     });
 
     this.initForm();
@@ -39,6 +41,7 @@ export class PostsComponent implements OnInit {
       body: [],
     });
   }
+ 
 
   createUser(event: any, postForm: { value: any }) {
     const postData = postForm.value;

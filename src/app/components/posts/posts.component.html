@@ -60,7 +60,11 @@
 
 <div *ngIf="postData">
   <h3 class="text-center title postTitle">Posts</h3>
+
+ 
+  
   <div class="container" *ngFor="let data of postData">
+
     <div *ngIf="!showEditPostForm" class="user-data card">
       <div>
         <div>
@@ -118,16 +122,18 @@
             placeholder="Enter User ID"
             id="userId"
             formControlName="userId"
+            autocomplete="off"
           />
         </div>
         <div class="form-group row">
-          <label class="col-sm-3" for="it">it:</label>
+          <label class="col-sm-3" for="it">ID:</label>
           <input
             class="col-sm-9"
             type="text"
-            placeholder="Enter it"
-            id="it"
-            formControlName="it"
+            placeholder="Enter ID"
+            id="id"
+            formControlName="id"
+            autocomplete="off"
           />
         </div>
         <div class="form-group row">
@@ -138,6 +144,7 @@
             placeholder="Enter title"
             id="title"
             formControlName="title"
+            autocomplete="off"
           />
         </div>
         <div class="form-group row">
@@ -148,6 +155,7 @@
             placeholder="Enter body"
             id="body"
             formControlName="body"
+            autocomplete="off"
           />
         </div>
 
