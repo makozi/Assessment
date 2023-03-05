@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-15-crud": {
+    "assessment": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-15-crud",
+            "outputPath": "docs",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "angular-15-crud:build:production"
+              "browserTarget": "assessment:build:production"
             },
             "development": {
-              "browserTarget": "angular-15-crud:build:development"
+              "browserTarget": "assessment:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-15-crud:build"
+            "browserTarget": "assessment:build"
           }
         },
         "test": {
@@ -101,6 +101,9 @@
               "./node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
